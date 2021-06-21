@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import PetForm from './PetForm';
-import { navigate } from '@reach/router';
+import { Link, navigate } from '@reach/router';
 
 const CreatePet = (props) => {
     const [ errors, setErrors ] = useState({});
@@ -29,8 +29,14 @@ const CreatePet = (props) => {
 
     return (
         <div>
-            <h1>Create a New Pet</h1>
-            <PetForm pet={ pet } setPet={ setPet } errors={ errors } handleSubmit={ handleSubmit } btnLabel={ "Create New Pet" }  />
+            <Link to="/" className="homeLink">back to home</Link>
+            <div classNam="header">
+                <h1>Pet Shelter</h1>
+                <h2>Know a pet needing a home?</h2>
+            </div>
+                <div>
+                    <PetForm pet={ pet } setPet={ setPet } errors={ errors } handleSubmit={ handleSubmit } btnLabel={ "Add pet" }  />
+                </div>
         </div>
     )
 }

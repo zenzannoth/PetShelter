@@ -1,29 +1,108 @@
 .App {
-  text-align: center;
   background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 1.5vmin);
   color: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#formcontainer {
+  border: 2px solid black;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  justify-content: top;
 }
 
-.pet-link {
-  text-decoration: none;
-  color: blue;
+.formdiv1 {
+  flex: 1;
+  flex-direction: column;
+  margin-right: 40px;
+  padding: 20px;
+}
+
+.formdiv2 {
+  flex: 1;
+  flex-direction: column;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.formtxt {
+  margin-bottom: 10px;
+}
+
+input {
+  font-size: 1.2em;
+}
+
+.details {
+  display: flex;
+  padding: 20px;
+}
+
+.addpet {
+  width: 200px;
+  height: 40px;
+  margin-top: 20px;
+  background-color: #2b78e4;
+  color: white;
+  font-size: 1em;
+  box-shadow: 3px 3px black;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+table {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: lightgrey;
+  padding-right: 150px;
+  padding-bottom: 10px;
+  padding-left: 8px;
+  border-right: 2px black solid;
+  border-left: 2px black solid;
+}
+
+td {
+  padding: 8px;
+  border-right: 2px black solid;
+  border-left: 2px black solid;
+}
+
+tr:nth-child(odd) {
+  background-color: #eeeeee;
+}
+
+.header {
+  flex-direction: row;
+}
+
+.addPet {
+  float: right;
+  font-size: 16px;
+}
+
+.homeLink {
+  float: right;
+  font-size: 16px;
 }
 
 .form-link {
@@ -44,4 +123,84 @@
   background-color: silver;
   padding: 0px 10px;
   border-radius: 5px;
+}
+
+#detailsheader {
+  display: flex;
+  flex-direction: row;
+}
+
+#formcontainer2 {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+}
+
+.details {
+  flex-direction: row;
+}
+
+.detailsleft {
+  flex-direction: column;
+  flex: 1;
+}
+
+.detailsright {
+  flex-direction: column;
+  justify-content: end;
+}
+
+.detailstable {
+  border: none;
+}
+
+.detailsrow {
+  border: none;
+  background-color: white;
+}
+
+.detailsdata {
+  border: none;
+  background-color: white;
+  padding: 20px;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.normal {
+  margin-right: 200px;
+}
+
+.likebtn {
+  width: 180px;
+  height: 40px;
+  margin-top: 20px;
+  background-color: green;
+  color: white;
+  font-size: 1em;
+  box-shadow: 3px 3px black;
+}
+
+.likecontainer {
+  display: flex;
+  margin-left: 350px;
+}
+
+.liketxt {
+  margin-left: 10px;
+}
+
+.adoptBtn {
+  width: 180px;
+  height: 40px;
+  margin-top: 100px;
+  margin-left: 100px;
+  background-color: red;
+  color: white;
+  font-size: 1em;
+  box-shadow: 3px 3px black;
+  justify-content: bottom;
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, navigate } from "@reach/router";
 import PetForm from './PetForm';
+import DeletePet from './DeletePet';
 
 const UpdatePet = (props) => {
     const { id } = props;
@@ -20,7 +21,7 @@ const UpdatePet = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put("http://localhost:8000/api/pets/" + id, pet)
+        axios.put("http://localhost:8000/api/pets/" + id + "/edit", pet)
             .then((res) => {
                 console.log(res.data);
                 if(res.data.errors) {
@@ -35,11 +36,18 @@ const UpdatePet = (props) => {
             })
         }
 
+        const postDelete = () => {
+            navigate("/");
+        }
+
     return (
         <div>
-            <h1>Update a Pet</h1>
-            <PetForm pet={ pet } setPet={ setPet } errors={ errors } handleSubmit={ handleSubmit } btnLabel={ "Update Pet Details" }/>
-            <p><Link to={"/"} className="form-link">Back to Pets</Link></p>
+            <Link to="/" className="homeLink">back to home</Link>
+            <div classNam="header">
+                <h1>Pet Shelter</h1>
+                <h2>Know a pet needing a home?</h2>
+            </div>
+            <PetForm pet={ pet } setPet={ setPet } errors={ errors } handleSubmit={ handleSubmit } btnLabel={ "✏ Edit Pet" }/>
         </div>
     )
 }

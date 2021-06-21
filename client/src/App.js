@@ -15,7 +15,7 @@ function App() {
         <PetList path="/pets" />
         <PetDetails path="/pets/:id" />
         <CreatePet path="/pets/new" />
-        <UpdatePet path="pets/update/:id" />
+        <UpdatePet path="pets/:id/edit" />
       </Router>
       
     </div>

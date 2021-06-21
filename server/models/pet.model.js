@@ -11,19 +11,18 @@ const PetSchema = new mongoose.Schema({
         required: [ true, 'Pet type is requrired' ],
         minLength: [ 3, 'Minimum length must be at least 3 characters'],
     },
-    petSex: {
-        type: String,
-        required: [ true, 'Pet sex is required'],
-        enum: [
-            'Male',
-            'Female',
-        ],
-     },
     description: {
         type: String,
         required: [ true, 'Pet description is required' ],
         minLength: [ 3, 'Minimum length must be at least 3 characters' ],
      },
+     like: {
+        type: Number,
+        default: 0,
+    },
+    skill1: { type: String },
+    skill2: { type: String },
+    skill3: { type: String },
  }, { timestamps: true});
 
  module.exports = mongoose.model("Pet", PetSchema);

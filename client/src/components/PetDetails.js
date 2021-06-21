@@ -3,8 +3,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, navigate } from "@reach/router";
 
+
 const PetDetails = (props) => {
     const [pet, setPet] = useState({});
+    const [ like, setLike ] = useState(pet.like);
+
     useEffect (() => {
         axios.get("http://localhost:8000/api/pets/" + props.id)
             
@@ -24,15 +27,76 @@ const PetDetails = (props) => {
             })
     }
 
+    const handleClick = () => {
+        setLike(pet.like);
+        pet.like = pet.like + 1;
+        axios.put("http://localhost:8000/api/pets/" + props.id)
+
+            .then(res => {
+                console.log(res.dat);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
     return (
         <div>
-            <h1 style={{textDecoration: "none"}}>Name: {pet.petName}</h1>
-            <p>Type: {pet.petType}</p>
-            <p>Sex: {pet.petSex}</p>
-            <p>Description: {pet.description}</p>
-            <p><Link className="form-link" to={"/pets/update/" + pet._id }> Edit</Link></p>
-            <p><button onClick={(e) => {deletePet(pet._id)}}>Delete</button></p> 
-            <p><Link to={"/"} className="form-link">Back to All Pets</Link></p>
+            <div id="detailsheader">
+                <div>
+                    <h1 className="detailsleft">Pet Shelter</h1>
+                    <h2 style={{textDecoration: "none"}}>Details about: {pet.petName}</h2>
+                </div>
+                <div className="detailsright">
+                    <Link to="/" className="homeLink">back to home</Link>
+                    <button className="adoptBtn" onClick={(e) => {deletePet(pet._id)}}>🏚 Adopt</button>
+                </div>
+            
+            </div>
+            <div id="formcontainer2">
+                <div className="details">
+                    <div>
+                    <table className="detailstable">
+                        <tr className="detailsrow">
+                            <td className="bold detailsdata">
+                                Pet type:
+                            </td>
+                            <td className="normal detailsdata">{pet.petType}</td>
+                        </tr>
+                        <tr className="detailsrow">
+                            <td className="bold detailsdata">
+                                Description:
+                            </td>
+                            <td className="normal detailsdata">{pet.description}</td>
+                        </tr>
+                        <tr className="detailsrow">
+                            <td className="bold detailsdata">
+                                Skills:
+                            </td>
+                            <td className="normal detailsdata">{pet.skill1}</td>
+                        </tr>
+                        <tr className="detailsrow">
+                            <td className="bold detailsdata">
+                            </td>
+                            <td className="normal detailsdata">{pet.skill2}</td>
+                        </tr>
+                        <tr className="detailsrow">
+                            <td className="bold detailsdata">
+                            </td>
+                            <td className="normal detailsdata">{pet.skill3}</td>
+                        </tr>
+                    </table>
+                    </div>
+                </div>
+                <div className="likecontainer">
+                    <div clasName="likecol">
+                        <button type="submit"className="likebtn" onClick={handleClick}>🤍 Like {pet.petName}</button>
+                    </div>
+                    <div className="likecol">
+                        <p className="liketxt">{pet.like} like(s)</p>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

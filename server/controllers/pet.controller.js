@@ -7,12 +7,15 @@ module.exports.index=(req, res) => {
 }
 
 module.exports.createPet = (req, res) => {
-    const { petName, petType, petSex, description } = req.body; //update the pet attributes
+    const { petName, petType, petSex, description, like, skill1, skill2, skill3 } = req.body; //update the pet attributes
     Pet.create({
         petName,
         petType,
-        petSex,
-        description
+        description,
+        like,
+        skill1,
+        skill2,
+        skill3
     })
         .then(pet => res.json(pet))
         .catch(err => res.json(err));
