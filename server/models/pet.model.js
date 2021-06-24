@@ -4,17 +4,17 @@ const PetSchema = new mongoose.Schema({
     petName: {
         type: String,
         required: [ true, 'Pet name is required' ],
-        minLength: [ 3, "Pet name must be at least 3 characters." ],
+        minLength: [ 3, "Must be at least 3 characters." ],
         },
     petType: {
         type: String,
-        required: [ true, 'Pet type is requrired' ],
-        minLength: [ 3, 'Minimum length must be at least 3 characters'],
+        required: [ true, 'Pet type is required' ],
+        minLength: [ 3, 'Must be at least 3 characters'],
     },
     description: {
         type: String,
         required: [ true, 'Pet description is required' ],
-        minLength: [ 3, 'Minimum length must be at least 3 characters' ],
+        minLength: [ 3, 'Must be at least 3 characters' ],
      },
      like: {
         type: Number,

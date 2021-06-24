@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, navigate } from "@reach/router";
 import PetForm from './PetForm';
-import DeletePet from './DeletePet';
+// import DeletePet from './DeletePet'; // old delete button
 
 const UpdatePet = (props) => {
     const { id } = props;
@@ -36,9 +36,10 @@ const UpdatePet = (props) => {
             })
         }
 
-        const postDelete = () => {
-            navigate("/");
-        }
+        // old delete
+        // const postDelete = () => {
+        //     navigate("/");
+        // }
 
     return (
         <div>

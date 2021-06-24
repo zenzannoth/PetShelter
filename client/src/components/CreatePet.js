@@ -7,7 +7,11 @@ const CreatePet = (props) => {
     const [ errors, setErrors ] = useState({});
     const [pet, setPet] = useState({
         petName: "",
-        petSex: ""
+        petType: "",
+        description: "",
+        skill1: "",
+        skill2: "",
+        skill3: ""
     });
 
     const handleSubmit = (e) => {

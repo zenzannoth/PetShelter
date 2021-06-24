@@ -17,7 +17,7 @@ const DeletePet = (props) => {
     }
 
     return (
-        <button className="delete-button" onClick={ (e) => submitDelete(e, id) }>Adopt this Pet</button>
+        <button className="delete-button" onClick={ (e) => submitDelete(e, id) }>Adopt</button>
     )
 }
 

@@ -27,11 +27,23 @@ const PetDetails = (props) => {
             })
     }
 
-    const handleClick = () => {
+    // const addLike = (e) => {
+    //     axios.put("http://localhost:8000/api/pets/" + props.id)
+    //         .then(res => {
+    //             console.log(res.dat);
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
+    //         })
+    // }
+    
+    const handleClick = (e) => {
+        e.preventDefault();
         setLike(pet.like);
         pet.like = pet.like + 1;
-        axios.put("http://localhost:8000/api/pets/" + props.id)
+        axios.put("http://localhost:8000/api/pets/" + props.id, {
 
+        })
             .then(res => {
                 console.log(res.dat);
             })
@@ -90,7 +102,8 @@ const PetDetails = (props) => {
                 </div>
                 <div className="likecontainer">
                     <div clasName="likecol">
-                        <button type="submit"className="likebtn" onClick={handleClick}>🤍 Like {pet.petName}</button>
+                        <button type="submit"className="likebtn"
+                        onClick={handleClick}>🤍Like {pet.petName}</button>
                     </div>
                     <div className="likecol">
                         <p className="liketxt">{pet.like} like(s)</p>
