@@ -4,7 +4,7 @@ import PetForm from './PetForm';
 import { Link, navigate } from '@reach/router';
 
 const CreatePet = (props) => {
-    const [ errors, setErrors ] = useState({});
+    const [ errors, setErrors ] = useState([]);
     const [pet, setPet] = useState({
         petName: "",
         petType: "",

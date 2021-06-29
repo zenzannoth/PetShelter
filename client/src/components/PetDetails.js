@@ -2,11 +2,13 @@ import '../App.css';
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, navigate } from "@reach/router";
+// import LikePet from './LikePet';
 
 
 const PetDetails = (props) => {
     const [pet, setPet] = useState({});
     const [ like, setLike ] = useState(pet.like);
+    const [ clicked, setClicked ] = useState(false);
 
     useEffect (() => {
         axios.get("http://localhost:8000/api/pets/" + props.id)
@@ -38,14 +40,14 @@ const PetDetails = (props) => {
     // }
     
     const handleClick = (e) => {
-        e.preventDefault();
-        setLike(pet.like);
+        // e.preventDefault();
+          // SWAP TO NEXT LINE?
         pet.like = pet.like + 1;
-        axios.put("http://localhost:8000/api/pets/" + props.id, {
-
-        })
+        setLike(pet.like);
+        axios.put("http://localhost:8000/api/pets/" + props.id + "/edit", pet)
             .then(res => {
-                console.log(res.dat);
+                console.log(res.data);
+                setClicked(true);
             })
             .catch(err => {
                 console.log(err);
@@ -103,11 +105,14 @@ const PetDetails = (props) => {
                 <div className="likecontainer">
                     <div clasName="likecol">
                         <button type="submit"className="likebtn"
-                        onClick={handleClick}>🤍Like {pet.petName}</button>
+                        onClick={(e) => handleClick(pet.like + 1)}>🤍Like {pet.petName}</button>
                     </div>
                     <div className="likecol">
                         <p className="liketxt">{pet.like} like(s)</p>
                     </div>
+                    {/* <div>
+                        <LikePet />
+                    </div> */}
                 </div>
             </div>
         </div>

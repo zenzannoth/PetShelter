@@ -7,22 +7,23 @@ const LikePet = (props) => {
     const [ pet, setPet ] = useState({});
     const [ clicked, setClicked ] = useState(false);
 
-    // useEffect = (() => {
-    //     axios.get("http://localhost:8000/api/pets/update" + id)
-    //         .then((res) => {
-    //             setLike(res.data.like);
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         })
-    // }, []);
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/pets/" + id, pet)
+            .then(res => {
+                setLike(res.data.like);
+                setPet(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }, []);
 
-    const submitLike = (e) => {
+    const submitLike = (e, like) => {
         e.preventDefault();
-        axios.put("http://localhost:8000/api/pets/" + id, pet)
+        setLike(pet.like = like + 1);
+        axios.put("http://localhost:8000/api/pets/" + id + "/edit", pet)
             .then((res) => {
                 setPet(res.data);
-                setLike(res.data.like + 1);
                 setClicked(true);
             })
             .catch((err) => {

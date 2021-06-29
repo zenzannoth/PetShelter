@@ -7,7 +7,7 @@ import PetForm from './PetForm';
 const UpdatePet = (props) => {
     const { id } = props;
     const [ pet, setPet ] = useState({});
-    const [ errors, setErrors ] = useState({});
+    const [ errors, setErrors ] = useState([]);
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/pets/" + id)
